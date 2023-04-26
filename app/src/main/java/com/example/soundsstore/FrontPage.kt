@@ -4,13 +4,18 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -52,7 +57,7 @@ fun MainPage(){
         //Main Section container of all
         Column(modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 40.dp, start = 25.dp, bottom = 16.dp)) {
+            .padding(top = 60.dp, start = 25.dp, bottom = 16.dp)) {
             //top section
             Text(text = buildString {
                 append("New\n")
@@ -71,9 +76,9 @@ fun MainPage(){
 
 
             Button(onClick = {}, modifier = Modifier.padding(start = 20.dp, end = 20.dp),
-                colors = ButtonDefaults.buttonColors(Color(0xFFffdde1)),
+                colors = ButtonDefaults.buttonColors(Color.Black),
             elevation = ButtonDefaults.buttonElevation(15.dp)) {
-                Text(text = "All", color = Color.Black)
+                Text(text = "All", color = Color.White)
             }
 
             Button(onClick = {}, elevation = ButtonDefaults.buttonElevation(15.dp),
@@ -89,10 +94,24 @@ fun MainPage(){
             
         }
 
+        Box(modifier = Modifier.padding(top = 20.dp)) {
+            //Cardview set up in Grid (LazyGrid)
+
+        }
+
 
     }
 }
 
+@Composable
+fun DisplayCards(){
+    Card(modifier = Modifier
+        .width(150.dp)
+        .height(200.dp), elevation = CardDefaults.cardElevation(20.dp),
+        ) {
+
+    }
+}
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview2() {
