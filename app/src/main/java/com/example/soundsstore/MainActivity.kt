@@ -1,5 +1,6 @@
 package com.example.soundsstore
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -55,7 +56,9 @@ fun IntroPage(){
             val mContext = LocalContext.current
 
             //button inside
-            Button(onClick = {},
+            Button(onClick = {
+                mContext.startActivity(Intent(mContext,FrontPage::class.java))
+            },
                 shape = CircleShape,
             modifier = Modifier
                 .padding(start = 50.dp, bottom = 50.dp)

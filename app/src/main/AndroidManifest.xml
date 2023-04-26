@@ -13,6 +13,11 @@
         android:theme="@style/Theme.SoundsStore"
         tools:targetApi="31">
         <activity
+            android:name=".FrontPage"
+            android:exported="false"
+            android:label="@string/title_activity_front_page"
+            android:theme="@style/Theme.SoundsStore" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
