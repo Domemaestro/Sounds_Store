@@ -18,7 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -67,6 +66,10 @@ fun MainPage(){
         Row(modifier = Modifier
             .fillMaxWidth()
             .padding(10.dp)) {
+
+            //using mutableStateOf to change button color on click
+
+
             Button(onClick = {}, modifier = Modifier.padding(start = 20.dp, end = 20.dp),
                 colors = ButtonDefaults.buttonColors(Color(0xFFffdde1)),
             elevation = ButtonDefaults.buttonElevation(15.dp)) {
