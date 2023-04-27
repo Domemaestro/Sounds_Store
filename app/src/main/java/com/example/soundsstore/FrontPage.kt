@@ -137,9 +137,9 @@ fun DisplayCards(dataSource:DataUse){
                     .fillMaxWidth()
                     .padding(bottom = 15.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(text = stringResource(id = dataSource.TitleResourceId), color = Color.Black,
-                        fontSize = 15.sp
+                        fontSize = 14.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(5.dp)
                     )
-                    Text(text = stringResource(id = dataSource.PriceResourceId))
+                    Text(text = stringResource(id = dataSource.PriceResourceId), fontSize = 13.sp)
                 }
             }
         }
