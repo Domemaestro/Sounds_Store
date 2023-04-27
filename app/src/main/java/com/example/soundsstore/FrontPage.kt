@@ -130,14 +130,14 @@ fun DisplayCards(dataSource:DataUse){
                 .height(130.dp), contentAlignment = Alignment.TopCenter) {
                 val image = painterResource(id = dataSource.ImageResourceId)
                 Image(painter = image, contentDescription = null, contentScale = ContentScale.Fit,
-                    modifier = Modifier.padding(top = 10.dp))
+                    modifier = Modifier.padding(top = 25.dp))
             }
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter) {
                 Column(modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 5.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                    .padding(bottom = 15.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(text = stringResource(id = dataSource.TitleResourceId), color = Color.Black,
-                        fontSize = 20.sp
+                        fontSize = 15.sp
                     )
                     Text(text = stringResource(id = dataSource.PriceResourceId))
                 }
