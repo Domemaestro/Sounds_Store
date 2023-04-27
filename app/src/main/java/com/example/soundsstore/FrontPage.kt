@@ -13,6 +13,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -28,10 +31,13 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.soundsstore.DataModel.DataUse
+import com.example.soundsstore.DataSource.DataSource
 import com.example.soundsstore.ui.theme.SoundsStoreTheme
 
 class FrontPage : ComponentActivity() {
@@ -62,7 +68,7 @@ fun MainPage(){
         //Main Section container of all
         Column(modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 60.dp, start = 25.dp, bottom = 16.dp)) {
+            .padding(top = 80.dp, start = 25.dp, bottom = 16.dp)) {
             //top section
             Text(text = buildString {
                 append("New\n")
@@ -99,9 +105,9 @@ fun MainPage(){
             
         }
 
-        Box(modifier = Modifier.padding(top = 20.dp)) {
+        Box(modifier = Modifier.padding(top = 8.dp)) {
             //Cardview set up in Grid (LazyGrid)
-
+            LazyGrids(dataList = DataSource().loadFunction())
 
         }
 
@@ -110,11 +116,11 @@ fun MainPage(){
 }
 
 @Composable
-fun DisplayCards(){
+fun DisplayCards(dataSource:DataUse){
     Card(modifier = Modifier
-        .width(200.dp)
-        .height(200.dp)
-        .padding(start = 20.dp, end = 20.dp), elevation = CardDefaults.cardElevation(20.dp), shape = RoundedCornerShape(30.dp)
+        .width(220.dp)
+        .height(220.dp)
+        .padding(start = 20.dp, end = 20.dp, bottom = 20.dp), elevation = CardDefaults.cardElevation(20.dp), shape = RoundedCornerShape(30.dp)
     ) {
         Box(modifier = Modifier
             .fillMaxSize()
@@ -122,22 +128,35 @@ fun DisplayCards(){
             Box(modifier = Modifier
                 .fillMaxWidth()
                 .height(130.dp), contentAlignment = Alignment.TopCenter) {
-                val image = painterResource(id = R.drawable.airpodspro3rd)
+                val image = painterResource(id = dataSource.ImageResourceId)
                 Image(painter = image, contentDescription = null, contentScale = ContentScale.Fit,
                     modifier = Modifier.padding(top = 10.dp))
             }
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter) {
-                Column(modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp), horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(text = "Title 1", color = Color.Black,
+                Column(modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 5.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(text = stringResource(id = dataSource.TitleResourceId), color = Color.Black,
                         fontSize = 20.sp
                     )
-                    Text(text = "Price")
+                    Text(text = stringResource(id = dataSource.PriceResourceId))
                 }
             }
         }
 
     }
 }
+
+//Implementation of lazyGrid
+@Composable
+private fun LazyGrids(dataList:List<DataUse>) {
+    LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 190.dp)) {
+        items(dataList){
+            dataHolder -> DisplayCards(dataSource = dataHolder)
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview2() {
