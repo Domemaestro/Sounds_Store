@@ -101,24 +101,7 @@ fun MainPage(){
 
         Box(modifier = Modifier.padding(top = 20.dp)) {
             //Cardview set up in Grid (LazyGrid)
-            Card(modifier = Modifier
-                .width(200.dp)
-                .height(200.dp)
-                .padding(start = 20.dp, end = 20.dp), elevation = CardDefaults.cardElevation(20.dp), shape = RoundedCornerShape(30.dp)
-            ) {
-                Box(modifier = Modifier.fillMaxSize().background(Color.White)) {
-                    Box(modifier = Modifier
-                        .fillMaxWidth()
-                        .height(150.dp), contentAlignment = Alignment.TopCenter) {
-                        val image = painterResource(id = R.drawable.airpodspro3rd)
-                        Image(painter = image, contentDescription = null, contentScale = ContentScale.Fit,
-                            modifier = Modifier.padding(top = 10.dp))
 
-
-                    }
-                }
-
-            }
 
         }
 
@@ -129,9 +112,29 @@ fun MainPage(){
 @Composable
 fun DisplayCards(){
     Card(modifier = Modifier
-        .width(150.dp)
-        .height(200.dp), elevation = CardDefaults.cardElevation(20.dp),
-        ) {
+        .width(200.dp)
+        .height(200.dp)
+        .padding(start = 20.dp, end = 20.dp), elevation = CardDefaults.cardElevation(20.dp), shape = RoundedCornerShape(30.dp)
+    ) {
+        Box(modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)) {
+            Box(modifier = Modifier
+                .fillMaxWidth()
+                .height(130.dp), contentAlignment = Alignment.TopCenter) {
+                val image = painterResource(id = R.drawable.airpodspro3rd)
+                Image(painter = image, contentDescription = null, contentScale = ContentScale.Fit,
+                    modifier = Modifier.padding(top = 10.dp))
+            }
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter) {
+                Column(modifier = Modifier.fillMaxWidth().padding(bottom = 5.dp), horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(text = "Title 1", color = Color.Black,
+                        fontSize = 20.sp
+                    )
+                    Text(text = "Price")
+                }
+            }
+        }
 
     }
 }
