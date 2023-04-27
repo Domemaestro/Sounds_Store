@@ -1,4 +1,23 @@
 <resources>
     <string name="app_name">Sounds Store</string>
     <string name="title_activity_front_page">FrontPage</string>
+    
+<!--    DataSource Strings-->
+    <string name="Title1">AirPods(2nd-Gen)</string>
+    <string name="Price1">₹14,900</string>
+
+    <string name="Title2">AirPods(3rd-Gen)</string>
+    <string name="Price2">₹19,900</string>
+
+    <string name="Title3">AirPods Pro</string>
+    <string name="Price3">₹26,900</string>
+
+    <string name="Title4">AirPods Max</string>
+    <string name="Price4">₹59,900</string>
+
+    <string name="Title5">OnePlus Buds Pro 2</string>
+    <string name="Price5">₹11,999</string>
+
+    <string name="Title6">OnePlus Buds Pro 2R</string>
+    <string name="Price6">₹11,999</string>
 </resources>
