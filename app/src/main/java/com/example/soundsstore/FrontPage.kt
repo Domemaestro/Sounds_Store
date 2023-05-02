@@ -110,8 +110,6 @@ fun MainPage(){
             LazyGrids(dataList = DataSource().loadFunction())
 
         }
-
-
     }
 }
 
