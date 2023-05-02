@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Sounds Store</string>
     <string name="title_activity_front_page">FrontPage</string>
-    
-<!--    DataSource Strings-->
+
+    <!--    DataSource Strings-->
     <string name="Title1">AirPods(2nd-Gen)</string>
     <string name="Price1">₹14,900</string>
 
@@ -20,4 +20,5 @@
 
     <string name="Title6">OnePlus Buds Pro 2R</string>
     <string name="Price6">₹11,999</string>
+    <string name="title_activity_buying_page">BuyingPage</string>
 </resources>

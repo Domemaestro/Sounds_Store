@@ -1,10 +1,13 @@
 package com.example.soundsstore
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -30,6 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -38,6 +42,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.soundsstore.DataModel.DataUse
 import com.example.soundsstore.DataSource.DataSource
+import com.example.soundsstore.ui.theme.BuyingPage
 import com.example.soundsstore.ui.theme.SoundsStoreTheme
 
 class FrontPage : ComponentActivity() {
@@ -59,6 +64,7 @@ class FrontPage : ComponentActivity() {
 
 @Composable
 fun MainPage(){
+
     //For Gradient Background
     val gradBack = Brush.verticalGradient(listOf(Color.White, Color(0xFFffdde1), Color(0xFFEFB8C8)))
 
@@ -118,11 +124,17 @@ fun DisplayCards(dataSource:DataUse){
     Card(modifier = Modifier
         .width(220.dp)
         .height(220.dp)
-        .padding(start = 20.dp, end = 20.dp, bottom = 20.dp), elevation = CardDefaults.cardElevation(20.dp), shape = RoundedCornerShape(30.dp)
+        .padding(start = 20.dp, end = 20.dp, bottom = 20.dp)
+        , elevation = CardDefaults.cardElevation(20.dp),
+        shape = RoundedCornerShape(30.dp)
     ) {
+        val mContext = LocalContext.current
         Box(modifier = Modifier
             .fillMaxSize()
-            .background(Color.White)) {
+            .background(Color.White).clickable {
+                //To Buying Page
+                mContext.startActivity(Intent(mContext,BuyingPage::class.java))
+            }) {
             Box(modifier = Modifier
                 .fillMaxWidth()
                 .height(130.dp), contentAlignment = Alignment.TopCenter) {
