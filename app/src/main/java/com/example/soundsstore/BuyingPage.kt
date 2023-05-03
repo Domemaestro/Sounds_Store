@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -63,8 +64,11 @@ fun BuyPage(){
             }
         }
         Box(modifier = Modifier.fillMaxSize()) {
-            Card(modifier = Modifier.fillMaxSize().padding(top = 400.dp),
-                shape = RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp)) {
+            Card(modifier = Modifier
+                .fillMaxSize()
+                .padding(top = 400.dp),
+                shape = RoundedCornerShape(topStart = 50.dp, topEnd = 50.dp),
+            elevation = CardDefaults.cardElevation(15.dp)) {
                 
             }
         }
