@@ -42,7 +42,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.soundsstore.DataModel.DataUse
 import com.example.soundsstore.DataSource.DataSource
-import com.example.soundsstore.ui.theme.BuyingPage
 import com.example.soundsstore.ui.theme.SoundsStoreTheme
 
 class FrontPage : ComponentActivity() {
@@ -133,7 +132,7 @@ fun DisplayCards(dataSource:DataUse){
             .fillMaxSize()
             .background(Color.White).clickable {
                 //To Buying Page
-                mContext.startActivity(Intent(mContext,BuyingPage::class.java))
+                mContext.startActivity(Intent(mContext, BuyingPage::class.java))
             }) {
             Box(modifier = Modifier
                 .fillMaxWidth()
