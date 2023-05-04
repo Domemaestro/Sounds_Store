@@ -1,5 +1,6 @@
 package com.example.soundsstore
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -22,6 +23,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -51,12 +53,15 @@ fun BuyPage(){
         .fillMaxSize()
         .background(Color.White)) {
         Column(modifier = Modifier.fillMaxWidth()) {
+            val mContext = LocalContext.current
             Box(modifier = Modifier.fillMaxWidth()) {
-                Button(onClick = {  }) {
+                Button(onClick = {
+                    mContext.startActivity(Intent(mContext,FrontPage::class.java))
+                }, modifier = Modifier.padding(start = 20.dp, top = 30.dp)) {
 
                 }
             }
-            Box(modifier = Modifier.fillMaxWidth(), contentAlignment = Alignment.Center) {
+            Box(modifier = Modifier.fillMaxWidth().padding(top = 50.dp), contentAlignment = Alignment.Center) {
                 val image = painterResource(id = R.drawable.airpods)
                 Image(painter = image, contentDescription = null, modifier = Modifier
                     .width(200.dp)
