@@ -8,8 +8,10 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -86,7 +88,7 @@ fun MainPage(){
 
         Row(modifier = Modifier
             .fillMaxWidth()
-            .padding(10.dp)) {
+            .padding(top = 10.dp)) {
 
             //using mutableStateOf to change button color on click
 
@@ -123,7 +125,7 @@ fun DisplayCards(dataSource:DataUse){
     Card(modifier = Modifier
         .width(220.dp)
         .height(220.dp)
-        .padding(start = 20.dp, end = 20.dp, bottom = 20.dp)
+
         , elevation = CardDefaults.cardElevation(20.dp),
         shape = RoundedCornerShape(30.dp)
     ) {
@@ -146,7 +148,7 @@ fun DisplayCards(dataSource:DataUse){
                     .fillMaxWidth()
                     .padding(bottom = 15.dp), horizontalAlignment = Alignment.CenterHorizontally) {
                     Text(text = stringResource(id = dataSource.TitleResourceId), color = Color.Black,
-                        fontSize = 14.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(5.dp)
+                        fontSize = 15.sp, fontWeight = FontWeight.Bold, modifier = Modifier.padding(5.dp)
                     )
                     Text(text = stringResource(id = dataSource.PriceResourceId), fontSize = 13.sp)
                 }
@@ -158,7 +160,8 @@ fun DisplayCards(dataSource:DataUse){
 //Implementation of lazyGrid
 @Composable
 private fun LazyGrids(dataList:List<DataUse>) {
-    LazyVerticalGrid(columns = GridCells.Adaptive(minSize = 190.dp)) {
+    LazyVerticalGrid(columns = GridCells.Fixed(2), contentPadding = PaddingValues(16.dp),
+    horizontalArrangement = Arrangement.spacedBy(16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
         items(dataList){
             dataHolder -> DisplayCards(dataSource = dataHolder)
         }
