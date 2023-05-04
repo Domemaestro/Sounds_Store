@@ -112,11 +112,13 @@ fun BuyPage(){
                         Button(onClick = { }, colors = ButtonDefaults.buttonColors(Color(0xFFEB98A1)),
                         elevation = ButtonDefaults.buttonElevation(20.dp)
                         ) {
-                            Text(text = "₹19,900", color = Color.Black)
+                            Text(text = "₹19,900", color = Color.Black, modifier = Modifier.padding(10.dp),
+                            fontSize = 18.sp)
                         }
                         Button(onClick = { },colors = ButtonDefaults.buttonColors(Color.Black),
                             elevation = ButtonDefaults.buttonElevation(20.dp)) {
-                            Text(text = "Add to cart", color = Color.White)
+                            Text(text = "Add to cart", color = Color.White,modifier = Modifier.padding(10.dp),
+                            fontSize = 18.sp)
                         }
                         
                     }
