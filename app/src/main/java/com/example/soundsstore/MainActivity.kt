@@ -64,7 +64,8 @@ fun IntroPage(){
                     .padding(top = 200.dp)
                     .width(300.dp))
 
-                Text(text = "Sound Store", fontWeight = FontWeight.Bold, fontSize = 30.sp)
+                Text(text = "Sounds Store", fontWeight = FontWeight.Bold, fontSize = 32.sp,
+                color = Color.White)
                 
             }
         }
