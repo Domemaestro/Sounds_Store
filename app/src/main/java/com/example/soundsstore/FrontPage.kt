@@ -130,16 +130,19 @@ fun DisplayCards(dataSource:DataUse){
         shape = RoundedCornerShape(30.dp)
     ) {
         val mContext = LocalContext.current
+        val image = painterResource(id = dataSource.ImageResourceId)
         Box(modifier = Modifier
             .fillMaxSize()
             .background(Color.White).clickable {
                 //To Buying Page
-                mContext.startActivity(Intent(mContext, BuyingPage::class.java))
+                val toBuyPage = Intent(mContext,BuyingPage::class.java)
+                mContext.startActivity(toBuyPage)
+
             }) {
             Box(modifier = Modifier
                 .fillMaxWidth()
                 .height(130.dp), contentAlignment = Alignment.TopCenter) {
-                val image = painterResource(id = dataSource.ImageResourceId)
+
                 Image(painter = image, contentDescription = null, contentScale = ContentScale.Fit,
                     modifier = Modifier.padding(top = 25.dp))
             }
