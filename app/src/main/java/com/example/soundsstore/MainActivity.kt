@@ -82,7 +82,7 @@ fun IntroPage(){
             modifier = Modifier
                 .padding(start = 50.dp, bottom = 50.dp)
                 .size(60.dp),
-                colors = ButtonDefaults.buttonColors(Color(0xFFCCC2DC)),
+                colors = ButtonDefaults.buttonColors(Color(0xFFffdde1)),
                 elevation = ButtonDefaults.buttonElevation(15.dp),
                 contentPadding = PaddingValues(0.dp)
             ) {
